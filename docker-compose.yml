@@ -1,0 +1,13 @@
+version: '3'
+services:
+  solr4:
+    restart: always
+    build: .
+    container_name: 'solr4'
+    ports:
+     - "8004:8983"
+    volumes:
+      - solr4-data:/usr/solr/solr-4.5.1/example/solr/
+volumes:
+  solr4-data:
+    driver: local
