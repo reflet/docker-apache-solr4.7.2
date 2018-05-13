@@ -21,20 +21,21 @@ ENV SOLR_USER="solr" \
     SOLR_GID="8983" \
     SOLR_VERSION="4.5.1" \
     SOLR_URL="https://archive.apache.org/dist/lucene/solr/4.5.1/solr-4.5.1.tgz" \
-    SOLR_HOME="/usr/solr/solr-4.5.1" \
-    PATH="$SOLR_HOME/bin:$PATH"
+    SOLR="/usr/solr/solr-4.5.1" \
+    SOLR_HOME="/usr/solr/solr-4.5.1/example/solr" \
+    PATH="$SOLR/bin:$PATH"
 
-RUN wget -nv $SOLR_URL -O /tmp/solr-4.5.1.tgz && \
+RUN wget --progress=bar:force $SOLR_URL -O /tmp/solr.tgz && \
     mkdir -p /usr/solr/ && \
-    tar xzvf /tmp/solr-4.5.1.tgz -C /usr/solr/ && \
-    rm /tmp/solr-4.5.1.tgz
+    tar xzvf /tmp/solr.tgz -C /usr/solr/ && \
+    rm /tmp/solr.tgz
 
 RUN groupadd -r --gid $SOLR_GID $SOLR_GROUP && \
     useradd -r --uid $SOLR_UID --gid $SOLR_GID $SOLR_USER && \
-    chown -R $SOLR_USER:$SOLR_GROUP $SOLR_HOME
+    chown -R $SOLR_USER:$SOLR_GROUP $SOLR
 
-WORKDIR $SOLR_HOME
+WORKDIR $SOLR
 EXPOSE 8983
 USER $SOLR_USER
-ENTRYPOINT /bin/sh -c "cd $SOLR_HOME/example/ && java -jar start.jar --daemon"
+ENTRYPOINT /bin/sh -c "cd $SOLR/example/ && java -Dsolr.solr.home=$SOLR_HOME -jar start.jar --daemon"
 
