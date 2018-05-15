@@ -15,14 +15,15 @@ ENV LANG ja_JP.UTF-8 \
     TERM xterm
 
 # apache solr
+# apache solr
+ENV SOLR_VERSION="4.7.2"
 ENV SOLR_USER="solr" \
     SOLR_UID="8983" \
     SOLR_GROUP="solr" \
     SOLR_GID="8983" \
-    SOLR_VERSION="4.5.1" \
-    SOLR_URL="https://archive.apache.org/dist/lucene/solr/4.5.1/solr-4.5.1.tgz" \
-    SOLR="/usr/solr/solr-4.5.1" \
-    SOLR_HOME="/usr/solr/solr-4.5.1/example/solr" \
+    SOLR_URL="https://archive.apache.org/dist/lucene/solr/$SOLR_VERSION/solr-$SOLR_VERSION.tgz" \
+    SOLR="/usr/solr/solr-$SOLR_VERSION" \
+    SOLR_HOME="/usr/solr/solr-$SOLR_VERSION/example/solr" \
     PATH="$SOLR/bin:$PATH"
 
 RUN wget --progress=bar:force $SOLR_URL -O /tmp/solr.tgz && \
