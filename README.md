@@ -26,8 +26,10 @@ $ docker exec -it solr4 bash
 
 ```
 $ git clone git@github.com:reflet/docker-solr4.git .
-$ docker build -t reflet/docker-solr4 .
-$ docker login
-$ docker tag reflet/docker-solr4 reflet/docker-solr4:{タグ}
-$ docker push reflet/docker-solr4
+$ docker build -t reflet/docker-solr4:{タグ} .
+$ vi docker-compose.yml
+$ docker-compose up -d
+$ git commit -m "{メッセージ}"
+$ git push origin master
 ```
+

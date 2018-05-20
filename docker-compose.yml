@@ -2,10 +2,10 @@ version: '3'
 services:
   solr4:
     restart: always
-    build: .
+    image: reflet/docker-solr4:1.2
     container_name: 'solr4'
     ports:
-     - "8004:8983"
+     - "8983:8983"
     volumes:
       - solr4-data:/usr/solr/solr-4.7.2/server/multicore/
       - solr4-logs:/usr/solr/solr-4.7.2/logs/
@@ -14,3 +14,4 @@ volumes:
     driver: local
   solr4-logs:
     driver: local
+
