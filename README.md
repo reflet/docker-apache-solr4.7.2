@@ -16,7 +16,7 @@
 
 ```
 $ docker pull reflet/docker-solr4
-$ docker run -d --name embulk reflet/docker-solr4
+$ docker run -d --name solr4 reflet/docker-solr4
 $ docker exec -it solr4 bash
 ```
 
