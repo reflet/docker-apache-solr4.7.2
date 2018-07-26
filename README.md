@@ -1,4 +1,4 @@
-# Java8 + ApacheSolr4.5.1 (日本環境）
+# Java8 + ApacheSolr4.7.2 (日本環境）
 
 オフィシャルのjava8を元に日本環境の調整を行いました。
 
@@ -8,7 +8,7 @@
 * タイムゾーン （Asia/Tokyo）
 * 必要なツールのインストール  
 ※ less lsof procps wget curl vim
-* Apache Solr 4.5.1
+* Apache Solr 4.7.2
 
 ### 使い方 ###
 
