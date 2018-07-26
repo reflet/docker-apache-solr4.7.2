@@ -14,8 +14,7 @@ ENV LANG ja_JP.UTF-8 \
     TZ JST-9 \
     TERM xterm
 
-# apache solr
-# apache solr
+# Apache Solr4
 ENV SOLR_VERSION="4.7.2"
 ENV SOLR_USER="solr" \
     SOLR_UID="8983" \
